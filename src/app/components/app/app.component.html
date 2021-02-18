@@ -1,0 +1,46 @@
+<!--&lt;!&ndash;1&ndash;&gt;-->
+<!--<form [formGroup]="form">-->
+<!--  <input type="text" [formControl]="email">-->
+<!--  <input type="text" formControlName="password">-->
+<!--  <button (click)="show(form)">show</button>-->
+<!--</form>-->
+
+
+<!--&lt;!&ndash;2&ndash;&gt;-->
+<!--<form [formGroup]="form">-->
+<!--  <input type="text" formControlName="email">-->
+<!--  <div *ngIf="form.controls.email.invalid">-->
+<!--    Invalid-->
+<!--  </div>-->
+<!--  <input type="text" formControlName="password">-->
+<!--  <button (click)="show(form)">show</button>-->
+<!--</form>-->
+
+
+<!--3-->
+<!--<form [formGroup]="form">-->
+<!--  <input type="text" formControlName="email">-->
+<!--  <div *ngIf="form.controls.email.invalid">-->
+<!--    Invalid-->
+<!--  </div>-->
+<!--  <input type="text" formControlName="password">-->
+<!--  <button (click)="show(form)">show</button>-->
+<!--</form>-->
+
+
+
+<form [formGroup]="form">
+  <input type="text" formControlName="email">
+  <br>
+  <div *ngIf="form.controls.email.invalid && form.controls.email.touched">
+    Invalid
+  </div>
+  <input type="text" formControlName="password">
+  <br>
+  <input type="text" formControlName="confirmPass">
+  <br>
+  <div *ngIf="form.hasError('passwordError') && form.controls.confirmPass.touched">
+pass error
+  </div>
+  <button (click)="show(form)" [disabled]="form.invalid || form.hasError('passwordError')">show</button>
+</form>
